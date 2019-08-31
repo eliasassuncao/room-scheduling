@@ -14,5 +14,23 @@ export const useStyles = makeStyles(theme => ({
     },
     inputSearchRoom: {
         width: '25%'
+    },
+    iconChecked: {
+        color: '#50d724',
+        marginRight: 8
+    },
+    iconCancel: {
+        color: '#e30707',
+        marginRight: 8
+    },
+    divStatus: {
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    searchDiv: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
     }
 }));

@@ -9,9 +9,12 @@ import {
     Paper,
     TextField,
     Fab,
+    CircularProgress
 } from '@material-ui/core';
 import {
-    Search
+    Search,
+    Cancel,
+    CheckCircle
 } from '@material-ui/icons';
 import { SYSTEM_ROUTES } from '../../constants';
 
@@ -20,26 +23,65 @@ function createData(titulo, sala, data, status) {
 }
 
 const rows = [
-    createData('titulo', 102, '15/09/2019', 'Disponivel'),
-    createData('titulo', 237, '15/09/2019', 'Indisponivel'),
-    createData('titulo', 262, '15/09/2019', 'Indisponivel'),
-    createData('titulo', 305, '15/09/2019', 'Disponivel'),
-    createData('titulo', 356, '15/09/2019', 'Disponivel'),
+    createData('titulo', 102, '15/09/2019', 1),
+    createData('titulo', 237, '15/09/2019', 0),
+    createData('titulo', 262, '15/09/2019', 0),
+    createData('titulo', 305, '15/09/2019', 1),
+    createData('titulo', 356, '15/09/2019', 1),
 ];
 
 export default function RoomListScreen(props) {
     const classes = useStyles();
     const [room, setRoom] = React.useState('');
+    const [loading, setLoading] = React.useState(false);
+
+    function _renderStatus(status) {
+        if (!!status) {
+            return (
+                <div className={classes.divStatus}>
+                    <CheckCircle className={classes.iconChecked} />
+                    Disponível
+                </div>
+            )
+        }
+        return (
+            <div className={classes.divStatus}>
+                <Cancel className={classes.iconCancel} />
+                Indisponível
+            </div>
+        )
+    };
+    function _onChangeFilter(evt) {
+        setRoom(evt.target.value)
+        setTimeout(() => {
+            setLoading(true);
+            _fetchList();
+        }, 3000)
+    };
+
+    function _fetchList() {
+        //simulando busca
+        setTimeout(() => {
+            setLoading(false)
+        }, 3000);
+    };
+
     return (
         <div className={classes.container}>
             <main>
-                <TextField
-                    label="Filtrar sala..."
-                    value={room}
-                    onChange={(evt) => setRoom(evt.target.value)}
-                    margin="normal"
-                    className={classes.inputSearchRoom}
-                />
+                <div className={classes.searchDiv}>
+                    <TextField
+                        label="Filtrar sala..."
+                        value={room}
+                        onChange={(evt) => _onChangeFilter(evt)}
+                        margin="normal"
+                        className={classes.inputSearchRoom}
+                    />
+                    {
+                        loading &&
+                        <CircularProgress size={20} />
+                    }
+                </div>
                 <Paper className={classes.root}>
                     <Table className={classes.table}>
                         <TableHead>
@@ -66,7 +108,7 @@ export default function RoomListScreen(props) {
                                             <Search />
                                         </Fab>
                                     </TableCell>
-                                    <TableCell align="right">{row.status}</TableCell>
+                                    <TableCell align="right">{_renderStatus(row.status)}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
