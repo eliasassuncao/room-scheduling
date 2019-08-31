@@ -23,11 +23,11 @@ function createData(titulo, sala, data, status) {
 }
 
 const rows = [
-    createData('titulo', 102, '15/09/2019', 1),
+    createData('titulo', 102, '', 1),
     createData('titulo', 237, '15/09/2019', 0),
     createData('titulo', 262, '15/09/2019', 0),
-    createData('titulo', 305, '15/09/2019', 1),
-    createData('titulo', 356, '15/09/2019', 1),
+    createData('titulo', 305, '', 1),
+    createData('titulo', 356, '', 1),
 ];
 
 export default function RoomListScreen(props) {
@@ -71,7 +71,7 @@ export default function RoomListScreen(props) {
             <main>
                 <div className={classes.searchDiv}>
                     <TextField
-                        label="Filtrar sala..."
+                        label="Filtrar pelo número da sala..."
                         value={room}
                         onChange={(evt) => _onChangeFilter(evt)}
                         margin="normal"
@@ -104,6 +104,7 @@ export default function RoomListScreen(props) {
                                             size="small"
                                             color="primary"
                                             onClick={() => props.history.push(SYSTEM_ROUTES.ROOM_DETAILS.routeTo)}
+                                            disabled={!(!!row.status)}
                                         >
                                             <Search />
                                         </Fab>

@@ -10,7 +10,7 @@ export const useStyles = makeStyles(theme => ({
         minWidth: 650,
     },
     container: {
-        margin: '10%'
+        margin: '5%'
     },
     inputSearchRoom: {
         width: '25%'
