@@ -23,4 +23,7 @@ export const useStyles = makeStyles(theme => ({
     divFab: {
         marginTop: 30,
     },
+    snack: {
+        backgroundColor: 'green',
+    }
 }));

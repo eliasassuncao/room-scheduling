@@ -43,7 +43,9 @@ export default function RoomDetailsScreen(props) {
         addSchedules(dataToSend)
             .then(() => {
                 setToastSuccess(true);
-                props.history.push('/')
+                setTimeout(() => {
+                    props.history.push('/')
+                }, 2000)
             })
             .catch(err => console.log(err))
     };
@@ -93,7 +95,6 @@ export default function RoomDetailsScreen(props) {
                     }}
                     open={toastSuccess}
                     autoHideDuration={6000}
-                    className={classes.snack}
                     onClose={() => setToastSuccess(false)}
                     message={<span> Sala {selectedRoom.sala} agendanda com sucesso!</span>}
 

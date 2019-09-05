@@ -35,6 +35,29 @@ namespace Scheduling.Api.Controllers
             var result = db.Rooms.Where(x => x.Room == roomId).ToList();
             return Request.CreateResponse(HttpStatusCode.OK, result);
         }
+
+        [HttpPost]
+        [Route("rooms")]
+        public HttpResponseMessage PostRooms(Rooms room)
+        {
+            if (room == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+            try
+            {
+
+                db.Rooms.Add(room);
+                db.SaveChanges();
+
+                var result = room;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception)
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Falha ao criar a sala.");
+            }
+        }
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

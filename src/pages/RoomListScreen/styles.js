@@ -37,5 +37,10 @@ export const useStyles = makeStyles(theme => ({
         marginTop: 10,
         display: 'flex',
         justifyContent: 'center'
-    }
+    },
+    fab: {
+        position: 'absolute',
+        bottom: theme.spacing(2),
+        right: theme.spacing(2),
+    },
 }));

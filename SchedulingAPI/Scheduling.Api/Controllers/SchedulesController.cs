@@ -43,6 +43,8 @@ namespace Scheduling.Api.Controllers
             {
                 //add do agendamento vindo do body
                 db.Schedules.Add(schedules);
+                var room = db.Rooms.First(x => x.Id == schedules.RoomsId);
+                room.Status = 0;
                 db.SaveChanges();
 
                 //retorno meu agendamento criado.

@@ -14,7 +14,8 @@ import {
 import {
     Search,
     Cancel,
-    CheckCircle
+    CheckCircle,
+    Add
 } from '@material-ui/icons';
 import { SYSTEM_ROUTES } from '../../constants';
 import { getSchedules, getRooms } from '../../services';
@@ -143,7 +144,15 @@ export default function RoomListScreen(props) {
                         <CircularProgress disableShrink />
                     </div>
                 }
+                <Fab
+                    aria-label='Add'
+                    className={classes.fab}
+                    color="primary"
+                    onClick={() => props.history.push(SYSTEM_ROUTES.CREATE_ROOM.routeTo)}
+                >
+                    <Add />
+                </Fab>
             </main>
-        </div>
+        </div >
     )
 };
