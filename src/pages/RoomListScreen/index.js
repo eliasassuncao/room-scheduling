@@ -17,23 +17,44 @@ import {
     CheckCircle
 } from '@material-ui/icons';
 import { SYSTEM_ROUTES } from '../../constants';
-
-function createData(titulo, sala, data, status) {
-    return { titulo, sala, data, status };
-}
-
-const rows = [
-    createData('titulo', 102, '', 1),
-    createData('titulo', 237, '15/09/2019', 0),
-    createData('titulo', 262, '15/09/2019', 0),
-    createData('titulo', 305, '', 1),
-    createData('titulo', 356, '', 1),
-];
+import { getSchedules, getRooms } from '../../services';
+import moment from 'moment';
 
 export default function RoomListScreen(props) {
     const classes = useStyles();
     const [room, setRoom] = React.useState('');
     const [loading, setLoading] = React.useState(false);
+    const [roomList, setRoomList] = React.useState([]);
+    const [loadingList, setLoadingList] = React.useState(true);
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const fetchData = async (params) => {
+        let schedulesList = await getSchedules() || [];
+        let roomsList = await getRooms(params) || [];
+        let newRoomList = [];
+        roomsList.data.map((room) => {
+            let objScheduling = schedulesList.data.find((scheduling) => scheduling.roomsId === room.id);
+            let data = '';
+            if (objScheduling) {
+                data = moment(objScheduling.created, 'YYYY-MM-DD').format('DD/MM/YYYY');
+            }
+            newRoomList = [
+                ...newRoomList,
+                {
+                    id: room.id,
+                    titulo: room.title,
+                    sala: room.room,
+                    status: room.status,
+                    data: data
+                }
+            ]
+        });
+        setRoomList(newRoomList);
+        setLoadingList(false);
+    };
 
     function _renderStatus(status) {
         if (!!status) {
@@ -51,19 +72,18 @@ export default function RoomListScreen(props) {
             </div>
         )
     };
-    function _onChangeFilter(evt) {
-        setRoom(evt.target.value)
-        setTimeout(() => {
-            setLoading(true);
-            _fetchList();
-        }, 3000)
+
+    useEffect(() => {
+        _fetchList();
+    }, [room]);
+
+    function _onChangeFilter(value) {
+        setRoom(value)
     };
 
     function _fetchList() {
-        //simulando busca
-        setTimeout(() => {
-            setLoading(false)
-        }, 3000);
+        setLoadingList(true);
+        fetchData(parseInt(room));
     };
 
     return (
@@ -73,7 +93,7 @@ export default function RoomListScreen(props) {
                     <TextField
                         label="Filtrar pelo número da sala..."
                         value={room}
-                        onChange={(evt) => _onChangeFilter(evt)}
+                        onChange={(evt) => _onChangeFilter(evt.target.value)}
                         margin="normal"
                         className={classes.inputSearchRoom}
                     />
@@ -93,28 +113,36 @@ export default function RoomListScreen(props) {
                                 <TableCell align="right">Status</TableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
-                            {rows.map(row => (
-                                <TableRow key={row.sala}>
-                                    <TableCell>{row.titulo}</TableCell>
-                                    <TableCell align="right">{row.sala}</TableCell>
-                                    <TableCell align="right">{row.data}</TableCell>
-                                    <TableCell align="right">
-                                        <Fab
-                                            size="small"
-                                            color="primary"
-                                            onClick={() => props.history.push(SYSTEM_ROUTES.ROOM_DETAILS.routeTo)}
-                                            disabled={!(!!row.status)}
-                                        >
-                                            <Search />
-                                        </Fab>
-                                    </TableCell>
-                                    <TableCell align="right">{_renderStatus(row.status)}</TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
+                        {
+                            !loadingList &&
+                            <TableBody>
+                                {roomList.map(row => (
+                                    <TableRow key={row.sala}>
+                                        <TableCell>{row.titulo}</TableCell>
+                                        <TableCell align="right">{row.sala}</TableCell>
+                                        <TableCell align="right">{row.data}</TableCell>
+                                        <TableCell align="right">
+                                            <Fab
+                                                size="small"
+                                                color="primary"
+                                                onClick={() => props.history.push(SYSTEM_ROUTES.ROOM_DETAILS.routeTo, { roomSelected: row })}
+                                                disabled={!(!!row.status)}
+                                            >
+                                                <Search />
+                                            </Fab>
+                                        </TableCell>
+                                        <TableCell align="right">{_renderStatus(row.status)}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        }
                     </Table>
                 </Paper>
+                {loadingList &&
+                    <div className={classes.loadingList}>
+                        <CircularProgress disableShrink />
+                    </div>
+                }
             </main>
         </div>
     )

@@ -32,5 +32,10 @@ export const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center'
+    },
+    loadingList: {
+        marginTop: 10,
+        display: 'flex',
+        justifyContent: 'center'
     }
 }));
