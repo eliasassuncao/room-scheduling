@@ -1,0 +1,5 @@
+C:\Users\elias\Desktop\SchedulingAPI\SchedulingAPI\bin\Debug\SchedulingAPI.dll
+C:\Users\elias\Desktop\SchedulingAPI\SchedulingAPI\bin\Debug\SchedulingAPI.pdb
+C:\Users\elias\Desktop\SchedulingAPI\SchedulingAPI\obj\Debug\Scheduling.Domain.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\SchedulingAPI\SchedulingAPI\obj\Debug\SchedulingAPI.dll
+C:\Users\elias\Desktop\SchedulingAPI\SchedulingAPI\obj\Debug\SchedulingAPI.pdb
