@@ -12,3 +12,17 @@ C:\Users\elias\Desktop\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra
 C:\Users\elias\Desktop\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.csproj.CopyComplete
 C:\Users\elias\Desktop\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.dll
 C:\Users\elias\Desktop\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.pdb
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\Scheduling.Infra.dll.config
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\Scheduling.Infra.dll
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\Scheduling.Infra.pdb
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\EntityFramework.dll
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\SchedulingAPI.dll
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\SchedulingAPI.pdb
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\EntityFramework.xml
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.csprojAssemblyReference.cache
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.csproj.CoreCompileInputs.cache
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.csproj.CopyComplete
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.dll
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Infra\obj\Debug\Scheduling.Infra.pdb

@@ -206,3 +206,6 @@ C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\obj\Debug\Schedul
 C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\obj\Debug\Scheduling.Api.csproj.CopyComplete
 C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\obj\Debug\Scheduling.Api.dll
 C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\obj\Debug\Scheduling.Api.pdb
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\bin\Scheduling.Api.xml
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\bin\Swashbuckle.Core.dll
+C:\Users\elias\Desktop\scheduling\SchedulingAPI\Scheduling.Api\bin\WebActivatorEx.dll
