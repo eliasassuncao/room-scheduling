@@ -38,7 +38,7 @@ namespace Scheduling.Infra.DataContexts
             context.Rooms.Add(new Rooms { Id = 1, Title = "Sala 1", Room = 12, Status = 1 });
             context.Rooms.Add(new Rooms { Id = 2, Title = "Sala 2", Room = 16, Status = 0 });
             context.Rooms.Add(new Rooms { Id = 3, Title = "Sala 3", Room = 34, Status = 1 });
-            context.Rooms.Add(new Rooms { Id = 4, Title = "Sala 4", Room = 35, Status = 1 });
+            context.Rooms.Add(new Rooms { Id = 4, Title = "Sala 4", Room = 35, Status = 0 });
             context.SaveChanges();
 
             //agendamentos criados
